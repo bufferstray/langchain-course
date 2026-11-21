@@ -27,8 +27,8 @@ def main() -> None:
 
     summary_prompt_template = PromptTemplate(input_variables=["information"], template=summary_template)
 
-    #llm = ChatOpenAI(temperature=0, model="gpt-5")
-    llm2 = ChatOllama(temperature=0, model="gemma3:270m")
-    chain = summary_prompt_template | llm2
+    llm = ChatOpenAI(temperature=0, model="gpt-5")
+    #llm2 = ChatOllama(temperature=0, model="gemma3:270m")
+    chain = summary_prompt_template | llm
     response = chain.invoke(input={"information": information})
     print(response.content)
